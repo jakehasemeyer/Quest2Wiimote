@@ -2,7 +2,7 @@
 
 Use Meta Quest 2 Touch controllers as Wii Remotes for [Dolphin](https://dolphin-emu.org/) on Windows. The right controller becomes a Wii Remote with calibrated virtual IR pointing; the left becomes its Nunchuk. Hand tracking works as a second input mode, and game rumble comes back to the controllers.
 
-The headset sits off your head on a shelf, facing your controllers. No SteamVR, no Meta Quest Link, no Android Studio, no Unity.
+The headset sits off your head  getting a clear angle of your monitor and facing your controllers, like a base station. No SteamVR, no Meta Quest Link, no Android Studio, no Unity.
 
 ## How it works
 

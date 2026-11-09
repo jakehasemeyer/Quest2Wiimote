@@ -1,0 +1,47 @@
+{
+  "credit": "Wii Sports Resort models ripped by DogToon64; Nintendo owns the original designs.",
+  "files": [
+    {
+      "name": "motionplus.dae",
+      "original": "Wii MotionPlus Remote/WS2_omk_wii_remote.dae",
+      "sha256": "72bcb9dc31937c063e5f5f0c10bba08eb6de0cde21e28d3452c29441fde3b211"
+    },
+    {
+      "name": "motionplus.png",
+      "original": "Wii MotionPlus Remote/TRremoconJacket_tex_omk.png",
+      "sha256": "425cff31e2c2925722f82129174fe6c33bb1ae0fa4bd9b94680a93e2c116a921"
+    },
+    {
+      "name": "nunchuk.dae",
+      "original": "Wii Remote and Nunchuck/Wii Remote and Nunchuck/nunchaku.dae",
+      "sha256": "97c2860aa648de88d3245f4c90298ef2495e9c3ffcff0f0089c67d4324ad3b0b"
+    },
+    {
+      "name": "nunchuk.png",
+      "original": "User-provided replacement texture, October 25, 2026",
+      "sha256": "ea6a73fd23a49d12445b1e56b9c0fe3a7789373fd97d9a3c039103c49277be6b"
+    }
+  ],
+  "models": {
+    "motionplus": {
+      "dae": "motionplus.dae",
+      "texture": "motionplus.png",
+      "meters_per_unit": 0.01,
+      "origin": [
+        0.0,
+        -0.101404,
+        -6.914794
+      ]
+    },
+    "nunchuk": {
+      "dae": "nunchuk.dae",
+      "texture": "nunchuk.png",
+      "meters_per_unit": 0.03815537493032308,
+      "origin": [
+        0.0,
+        0.0,
+        -0.55
+      ]
+    }
+  }
+}

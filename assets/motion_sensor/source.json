@@ -1,0 +1,18 @@
+{
+  "credit": "Motion Sensor from Garry's Mod ripped by DogToon64.",
+  "origin": [0.0, 0.0685515, 0.0],
+  "rotation": [0.0, -0.7071067811865475, 0.0, 0.7071067811865476],
+  "meters_per_unit": 1.0,
+  "files": [
+    {
+      "name": "motion_sensor.obj",
+      "original": "Motion Sensor/Motion Sensor/motion_sensor.obj",
+      "sha256": "e0d3e44ae00c5d21a97a8ae07e8fbd69f3ff9bd6a14344a66d797cb1fc74ad65"
+    },
+    {
+      "name": "motion_sensor.png",
+      "original": "Motion Sensor/Motion Sensor/motion_sensor.png",
+      "sha256": "c83be3750f8f1a9e4a5551212c53f447f00232654b2c2b88919ee1b064d73c42"
+    }
+  ]
+}

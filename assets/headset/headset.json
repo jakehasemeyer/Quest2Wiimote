@@ -1,0 +1,21 @@
+{
+  "origin": [
+    0,
+    0,
+    -0.4
+  ],
+  "meters_per_unit": 0.12364491165155195,
+  "files": [
+    {
+      "name": "headset.obj",
+      "original": "397905188.obj",
+      "sha256": "9f74d71688c26e8873e212a4a24c4e635d565474cfbeae16581ee162eb2fcff0"
+    },
+    {
+      "name": "headset.png",
+      "original": "398121219.png",
+      "sha256": "0518260d83030275b2d0b91be7d776eb03c5b2e0616373b3f9c2110a74da4821"
+    }
+  ],
+  "alignment": "Nominal 19.15 cm visor width, +Y up and -Z forward; eye origin estimated within visor. Decorative headset mesh, not a scanned Quest 2."
+}

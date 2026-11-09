@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quest2Wiimote · Tracking station</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236ae5be'/%3E%3Cpath d='M7 11h18v10H7z' fill='%23111922'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><span class="brand-icon">⌘</span><span>Quest2Wiimote<small>Controller tracking station</small></span></div>
+  <div class="station"><span class="quest-icon">▰</span><div>Meta Quest 2<small id="device-status">Not connected</small></div><i id="station-dot" class="dot"></i></div>
+  <div class="side-section"><h2>Connection</h2>
+    <label for="device">ADB device</label><div class="device-row"><select id="device" aria-label="ADB device"><option value="">No authorized device</option></select><button id="refresh" title="Refresh devices" aria-label="Refresh devices">↻</button></div>
+    <p id="adb-hint" class="hint">Connect your Quest by USB and allow USB debugging.</p>
+    <button class="primary wide" data-action="install">↗ &nbsp;Install & start</button>
+    <button class="wide" data-action="usb">Start existing app</button>
+    <div class="split"><button data-action="mirror">▣ &nbsp;Headset view</button><button data-action="stop" title="Stop app and restore sleep">Stop</button></div>
+    <label class="check"><input id="passthrough" type="checkbox"> Request passthrough layer</label>
+    <p class="hint small">ADB mirrors the display. Quest 2 may hide the camera layer from capture.</p>
+  </div>
+  <details class="side-section"><summary>Wireless connection <span>＋</span></summary>
+    <p class="hint">Pair over USB first. Keep the PC and Quest on the same trusted network.</p>
+    <input id="quest-ip" placeholder="Quest IP (auto-detect)" aria-label="Quest Wi-Fi IP">
+    <button class="wide" data-action="wifi">Enable wireless ADB</button>
+    <button class="wide subtle" data-action="wifi-off">Disable wireless ADB</button>
+    <p class="hint small">Motion and mirroring use the ADB Wi-Fi tunnel. USB can then be unplugged.</p>
+  </details>
+  <div class="side-footer"><button data-action="dolphin" class="wide guide">▷ &nbsp;Open configured Dolphin <span>↗</span></button><button id="setup-open" class="wide guide">▤ &nbsp;Dolphin setup <span>↗</span></button><button data-action="logs" class="text-button">View Quest diagnostic log</button><div class="local-note"><i class="dot green"></i> Runs locally on your PC</div></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">Station <span>/</span> Tracking</div><div class="server-badge"><i class="dot green"></i> DSU server <code>127.0.0.1:26760</code></div></header>
+  <section class="title-row"><div><h1>Controller tracking</h1><p>A stationary headset. Two Touch controllers. Ready for Dolphin.</p></div><span id="connection-badge" class="pill"><i class="dot"></i> Waiting for Quest</span></section>
+  <section class="metrics"><div><span>Transport</span><strong id="transport">USB / ADB</strong><small>TCP motion stream</small></div><div><span>Tracking rate</span><strong><b id="hz">—</b><em>Hz</em></strong><small>Received from OpenXR</small></div><div><span>Last sample</span><strong><b id="age">—</b><em>ms ago</em></strong><small>Not round-trip latency</small></div><div><span>Dolphin output</span><strong id="dsu-status">Listening</strong><small id="dsu-detail">Waiting for a DSU client</small></div></section>
+  <section class="space-card"><div class="card-heading"><div><h2>Tracking space</h2><span class="muted">Headset and controller poses · meters</span></div><div class="view-tools"><label class="check"><input type="checkbox" id="frusta" checked> Camera frusta</label><button id="reset-view" title="Reset orbit camera">⌖ &nbsp;Reset view</button></div></div>
+    <div id="viewport"><div id="scene-status" class="scene-status"><i class="dot"></i><span>Reference layout · no live data</span></div><div id="scene-error" hidden></div><div class="scene-axis">Y <span>↑</span> <span class="muted">· OpenXR local space</span></div><div id="head-label" class="object-label">Quest 2 <span>Base station</span></div><div id="right-label" class="object-label"><i class="dot mint"></i> Right <span>Wii Remote</span></div><div id="left-label" class="object-label"><i class="dot blue"></i> Left <span>Nunchuk / Wii Remote 2</span></div><div class="orbit-hint">Drag to orbit <span>·</span> Scroll to zoom <span>·</span> Right-drag to pan</div></div>
+    <div class="space-footer"><div class="legend"><span><i class="swatch mint"></i> Right Touch</span><span><i class="swatch blue"></i> Left Touch</span><span><i class="swatch amber"></i> Estimated camera view</span></div><label class="range-label">Visual range <input id="range" type="range" min="0.5" max="4" step="0.1" value="1.2"><output id="range-value">1.2 m</output></label></div>
+    <p class="frustum-note">Camera positions, angles and range are illustrative, not calibrated Quest camera intrinsics. Live tracking flags determine tracking status.</p>
+  </section>
+  <section class="controller-cards">
+    <article class="controller-card" id="right-card"><div class="controller-heading"><div><i class="controller-swatch mint"></i><h2>Right Touch</h2><span>Wii Remote · DSU slot 0</span></div><span class="tracking-state">Offline</span></div><div class="motion-row"><div><span>Acceleration <small>g</small></span><strong class="accel-value">— &nbsp; — &nbsp; —</strong></div><div><span>Gyroscope <small>°/s</small></span><strong class="gyro-value">— &nbsp; — &nbsp; —</strong></div><canvas class="spark" width="200" height="42" aria-label="Angular velocity history"></canvas></div><div class="inputs"><span>Trigger <meter min="0" max="1" value="0" class="trigger-meter"></meter></span><span>Grip <meter min="0" max="1" value="0" class="grip-meter"></meter></span><span class="button-inputs"><b data-bit="1">A</b><b data-bit="2">B</b><b data-bit="4">Stick</b></span></div></article>
+    <article class="controller-card" id="left-card"><div class="controller-heading"><div><i class="controller-swatch blue"></i><h2>Left Touch</h2><span>Nunchuk · DSU slot 1</span></div><span class="tracking-state">Offline</span></div><div class="motion-row"><div><span>Acceleration <small>g</small></span><strong class="accel-value">— &nbsp; — &nbsp; —</strong></div><div><span>Gyroscope <small>°/s</small></span><strong class="gyro-value">— &nbsp; — &nbsp; —</strong></div><canvas class="spark" width="200" height="42" aria-label="Angular velocity history"></canvas></div><div class="inputs"><span>Trigger <meter min="0" max="1" value="0" class="trigger-meter"></meter></span><span>Grip <meter min="0" max="1" value="0" class="grip-meter"></meter></span><span class="button-inputs"><b data-bit="1">X</b><b data-bit="2">Y</b><b data-bit="4">Stick</b></span></div></article>
+  </section>
+  <div class="bottom-note"><i class="dot amber"></i><span>Keep the headset awake, stationary and facing the controllers. Off-camera tracking can degrade or stop.</span><span id="session-focus">No session</span></div>
+</main>
+<dialog id="setup-dialog"><div class="dialog-heading"><h2>Connect Dolphin</h2><button id="setup-close" aria-label="Close setup">✕</button></div><p>Choose an <strong>Emulated Wii Remote</strong> in Dolphin’s Controllers window.</p><ol><li>Open <strong>Alternate Input Sources</strong>, enable <strong>DSU Client</strong>, and add:<div class="code-block">Name: Quest2Wiimote<br>Address: 127.0.0.1<br>Port: 26760</div></li><li>Open Dolphin’s user folder, then <code>Config/Profiles/Wiimote</code>. Copy the generated profile INI files into it.<button data-action="profiles" class="wide">Open generated profiles folder ↗</button></li><li>Configure Wii Remote 1 and load <strong>Quest - Wiimote + Nunchuk</strong>. Select <strong>DSUClient/0/Quest2Wiimote</strong> if needed.</li></ol><p class="hint">Two players: load Right Wiimote for player 1 and Left Wiimote for player 2 instead. The Quest app must be focused before the DSU devices appear.</p><div class="mapping"><span>Right A → Wii A</span><span>Right trigger → Wii B</span><span>Left grip → Nunchuk C</span><span>Left trigger → Nunchuk Z</span><span>Left stick → Nunchuk stick</span><span>Left stick click → Recenter pointer</span></div><p class="hint">Rotation feeds Dolphin Motion Input / MotionPlus. Acceleration is an estimate from tracked velocity plus gravity. Gyro pointing may drift; recenter while aiming at screen center. Rumble is not implemented.</p></dialog>
+<dialog id="log-dialog"><div class="dialog-heading"><h2>Quest diagnostic log</h2><button id="log-close" aria-label="Close log">✕</button></div><pre id="log-text"></pre></dialog>
+<div id="toast" role="status" hidden></div>
+<script type="module" src="app.js"></script>
+</body></html>

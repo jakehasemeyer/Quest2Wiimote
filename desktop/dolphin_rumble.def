@@ -1,0 +1,9 @@
+LIBRARY xinput1_4
+EXPORTS
+    XInputGetState=BridgeGetState @100
+    XInputSetState=BridgeSetState
+    XInputGetCapabilities=BridgeGetCapabilities
+    XInputGetBatteryInformation=BridgeGetBatteryInformation
+    XInputEnable=BridgeEnable
+    XInputGetKeystroke=BridgeGetKeystroke
+    XInputGetAudioDeviceIds=BridgeGetAudioDeviceIds

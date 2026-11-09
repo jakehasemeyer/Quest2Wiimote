@@ -1,0 +1,40 @@
+{
+  "app": 250820,
+  "depot": 250824,
+  "manifest": "3693738476548293851",
+  "downloaded": "2026-10-25",
+  "files": [
+    {
+      "path": "oculus_quest2_controller_right\\oculus_quest2_controller_right.obj",
+      "sha256": "2a3c1df718cffd0bf13f7e55e25551f62072c1578f86b004d4d3a79f52468198"
+    },
+    {
+      "path": "oculus_quest2_controller_right\\oculus_quest2_controller_right.mtl",
+      "sha256": "885cc6cbb2f057a38497d44da51bc554362411eb6bc5a11122c5f438a73fd97f"
+    },
+    {
+      "path": "oculus_quest2_controller_right\\oculus_quest2_controller_right.json",
+      "sha256": "3c15336aaa5a6dd3c2e4328c3e2eacc7f48d7f527ed23d99813e0265e8b44a34"
+    },
+    {
+      "path": "oculus_quest2_controller_right\\oculus_quest2_controller_right.png",
+      "sha256": "0984aeaf7fc1acc5f5142d55b45b5822fca644a2a9e0d1d3a5e114dbf2b6c8ba"
+    },
+    {
+      "path": "oculus_quest2_controller_left\\oculus_quest2_controller_left.obj",
+      "sha256": "7274712255400ef83080b7cf580b5ef7d5360be16610d9f1e4a7f6a7bbf16382"
+    },
+    {
+      "path": "oculus_quest2_controller_left\\oculus_quest2_controller_left.mtl",
+      "sha256": "0215c8d2111d2dbf9e489af22b64bd455f830b7d38a340bf4eb6921ded135a09"
+    },
+    {
+      "path": "oculus_quest2_controller_left\\oculus_quest2_controller_left.json",
+      "sha256": "e814d18ea10cb7e1d323c525755745705b28146661e980e471a65e56178e3b3b"
+    },
+    {
+      "path": "oculus_quest2_controller_left\\oculus_quest2_controller_left.png",
+      "sha256": "b53160b09d15d4f3430a12dce4e797abd9d8716afd338b98a87fb90ef664d7ad"
+    }
+  ]
+}
